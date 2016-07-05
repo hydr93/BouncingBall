@@ -6,6 +6,9 @@ public class Bricks : MonoBehaviour {
 	private List<Brick> brickList = new List<Brick> ();
 
 	public void Start(){
+	}
+
+	public void Awake(){
 		foreach ( Transform child in transform){
 			if ( child != null && child.gameObject != null && child.gameObject.tag == "Brick"){
 				brickList.Add(child.gameObject.GetComponent<Brick>());
