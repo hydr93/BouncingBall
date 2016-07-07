@@ -12,7 +12,7 @@ public class Brick : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if ( hit){
+		if (hit){
 			hit = false;
 			if (IsOn())
 				SetOff();

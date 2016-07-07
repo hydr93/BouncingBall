@@ -16,6 +16,8 @@ public class PauseController :MonoBehaviour {
 		Pause(false);
 	}
 
+	// Pauses the game.
+	// If gameOver is true, then the gameOver screen is shown to the user
 	public void Pause(bool gameOver){
 		Time.timeScale = (Time.timeScale == 1) ? 0 : 1;
 		pauseScreen.gameObject.SetActive(!canvas.gameObject.activeInHierarchy && !gameOver);
@@ -24,6 +26,7 @@ public class PauseController :MonoBehaviour {
 		gameObject.SetActive(!gameObject.activeInHierarchy);
 	}
 
+	// Sets Music On or Off
 	public void MusicOnOff(){
 		MusicController.Instance.MusicOnOff(musicImage,musicOnSprite,musicOffSprite);
 	}

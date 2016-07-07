@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour {
  		gameObject.GetComponent<Rigidbody2D>().velocity = v * speed;
 	}
 
-	// Update is called once per frame
+	// Calculations are done here
 	void Update () {
 		// default speed increases over time
 		defaultSpeed += SPEEDPERDELTATIME;
@@ -24,11 +24,11 @@ public class Ball : MonoBehaviour {
 		if ( timeLeft < 0 ){
 			timeLeft = 0;
 		}
-		// current speed is equal to 
+		// current speed can be adjusted with OnMouseDown
 		speed = defaultSpeed*((timeLeft / MAXTIME)+1);
 	}
 
-	
+	// Actions of calculations are done here
 	void FixedUpdate () {
 		gameObject.GetComponent<Rigidbody2D>().velocity = gameObject.GetComponent<Rigidbody2D>().velocity.normalized * speed; 
 	}
@@ -42,8 +42,8 @@ public class Ball : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D coll){
 		if (coll.gameObject.tag == "Finish" ){
-			pauseController.Pause(true);
 			Destroy(gameObject, 0.2f);
+			pauseController.Pause(true);
 		}
 	}
 }

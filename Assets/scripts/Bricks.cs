@@ -16,6 +16,7 @@ public class Bricks : MonoBehaviour {
 		}
 	}
 
+	// Randomize a set of bricks according to the current level.
 	public void RandomBricks(int level, int numberOfLevelsToIncreaseOpenBrickSize){
 		int openBricks = (level / numberOfLevelsToIncreaseOpenBrickSize) + 1;
 		for ( int i = 0 ; i < brickList.Count; i++){

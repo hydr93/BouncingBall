@@ -6,7 +6,6 @@ public class CameraBallTracker : MonoBehaviour {
 	private Transform ball;
 	private float offset_y;
 
-	// Use this for initialization
 	void Start () {
 		GameObject ball_object = GameObject.FindGameObjectWithTag ("Ball");
 
@@ -20,7 +19,7 @@ public class CameraBallTracker : MonoBehaviour {
 		offset_y = transform.position.y - ball.position.y;
 	}
 	
-	// Update is called once per frame
+	// Track Ball
 	void Update () {
 		if ( ball != null ){
 			Vector3 possibleposition = transform.position;

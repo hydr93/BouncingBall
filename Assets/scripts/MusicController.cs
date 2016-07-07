@@ -21,15 +21,20 @@ public class MusicController : MonoBehaviour {
     	DontDestroyOnLoad(this.gameObject);
 	}
 
+	// Set Music On or Off according to the current state.
 	public void MusicOnOff(GameObject musicImage, Sprite musicOnSprite, Sprite musicOffSprite){
 		if ( musicOn ){
 			SetMusicOff();
+			
+			// Set image in pause screen
 			if (musicImage.gameObject != null){
 				musicImage.GetComponent<Image>().sprite = musicOffSprite;
 				musicImage.GetComponent<Image>().color = Color.gray;
 			}
 		}else{
 			SetMusicOn();
+
+			// Set image in pause screen
 			if (musicImage.gameObject != null){
 				musicImage.GetComponent<Image>().color = Color.black;
 				musicImage.GetComponent<Image>().sprite = musicOnSprite;

@@ -24,7 +24,6 @@ public class BGController : MonoBehaviour {
 		// Bricks4.transform.localScale = new Vector3(Bricks4.transform.localScale.x * multiplier, Bricks4.transform.localScale.y * multiplier, Bricks4.transform.localScale.z);
 
 		//Assign the current states of Bricks
-
 		Bricks1.RandomBricks(level,numberOfLevelsToIncreaseOpenBrickSize);
 		level++;
 		Bricks2.RandomBricks(level,numberOfLevelsToIncreaseOpenBrickSize);
@@ -35,11 +34,13 @@ public class BGController : MonoBehaviour {
 
 	void OnTriggerEnter2D( Collider2D collider){
 		if ( collider.tag == "BG"){
+			// Handle the background image
 			float backgroundHeight = ((BoxCollider2D)collider).size.y * collider.transform.lossyScale.y * numberOfBGs;
 			Vector3 pos = collider.transform.position;
 			pos.y += backgroundHeight;
 			collider.transform.position = pos;
 		}else if ( collider.tag == "Bricks"){
+			// Handle the bricks
 			collider.gameObject.GetComponent<Bricks>().RandomBricks(level, numberOfLevelsToIncreaseOpenBrickSize);
 			level++;
 			Vector3 pos = collider.transform.position;
