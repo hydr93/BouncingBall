@@ -11,8 +11,6 @@ public class PauseController :MonoBehaviour {
 	public GameObject musicImage;
 	public Sprite musicOnSprite;
 	public Sprite musicOffSprite;
-
-	private bool musicOn = true;
 	
 	void OnMouseDown(){
 		Pause(false);
@@ -26,21 +24,12 @@ public class PauseController :MonoBehaviour {
 		gameObject.SetActive(!gameObject.activeInHierarchy);
 	}
 
-	public void Quit(){
-		Application.Quit();
+	public void MusicOnOff(){
+		MusicController.Instance.MusicOnOff(musicImage,musicOnSprite,musicOffSprite);
 	}
 
-	public void MusicOnOff(){
-		if ( musicOn ){
-			musicOn = false;
-			musicImage.GetComponent<Image>().sprite = musicOffSprite;
-			musicImage.GetComponent<Image>().color = Color.gray;
-		}else{
-			musicOn = true;
-			musicImage.GetComponent<Image>().color = Color.black;
-			musicImage.GetComponent<Image>().sprite = musicOnSprite;
-		}
-		
+	public void Quit(){
+		Application.Quit();
 	}
 
 	public void Restart(){
