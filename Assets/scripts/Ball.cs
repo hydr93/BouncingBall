@@ -18,11 +18,13 @@ public class Ball : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		// default speed increases over time
 		defaultSpeed += SPEEDPERDELTATIME;
 		timeLeft = timeLeft - Time.deltaTime;
 		if ( timeLeft < 0 ){
 			timeLeft = 0;
 		}
+		// current speed is equal to 
 		speed = defaultSpeed*((timeLeft / MAXTIME)+1);
 	}
 
@@ -32,7 +34,7 @@ public class Ball : MonoBehaviour {
 	}
 
 	void OnMouseDown (){
-		if ( Input.GetMouseButtonDown(0)){
+		if ( Time.timeScale == 1 && Input.GetMouseButtonDown(0)){
 			speed = (float)2 * defaultSpeed;
 			timeLeft = MAXTIME;
 		}

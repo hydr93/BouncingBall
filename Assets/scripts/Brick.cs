@@ -6,7 +6,9 @@ public class Brick : MonoBehaviour {
 	private bool hit;
 
 	void OnMouseDown(){
-		hit = true;
+		if ( Time.timeScale == 1){
+			hit = true;
+		}
 	}
 
 	void FixedUpdate(){
